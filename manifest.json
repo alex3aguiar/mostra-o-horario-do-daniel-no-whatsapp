@@ -1,0 +1,13 @@
+{
+    "name": "mostra hora do daniel",
+    "version": "1.0",
+    "manifest_version": 3,
+    "description": "mostra hora do daniel",
+    "permissions": [],
+    "content_scripts": [
+      {
+        "matches": ["https://web.whatsapp.com/"],
+        "js": ["script.js"]
+      }
+    ]
+}
