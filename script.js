@@ -6,9 +6,13 @@ if(window.location.hostname ==  'web.whatsapp.com' ){
     });
     danieis.forEach(daniel => {
       var dataBerlim = new Date();
-      var horaBerlim = dataBerlim.toLocaleString('en-US', { timeZone: 'Europe/Berlin' });
-      daniel.innerText = nomeDoDaniel + "  "+ horaBerlim
-  
+      let horaDaMensagem = daniel.parentNode.parentElement.childNodes[2].innerText
+      let [hora, min ]= horaDaMensagem.split(":")
+      dataBerlim.setHours(hora, min, 0, 0);
+
+      var horaBerlim = dataBerlim.toLocaleString('pt-BR', { timeZone: 'Europe/Berlin' });
+      daniel.parentElement.parentElement.firstChild.innerHTML = daniel.parentElement.parentElement.firstChild.innerHTML.split("</span>")[0] + "</span>" +
+      `<span dir="auto" aria-label="" style="min-height: 0px;font-size: small;color: grey;margin-left: 1rem;">${horaBerlim}</span>`  
     });
   
   }, 10000);
